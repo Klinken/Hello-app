@@ -17,8 +17,8 @@
     <div class="row" style="height: 100vh;display: flex;align-items: center;">
       <div class="col m4 offset-m4">
         <div class="card white hoverable">
-          
-        <form class="card-content" action="welcome.php" method="post">
+
+          <form class="card-content" action="welcome.php" method="post">
 
             <span class="card-title" style="font-weight:bold;">Logon</span>
 
@@ -38,6 +38,17 @@
 
               </div>
             </div>
+            
+          <div class="row">
+          
+            <div class="input-field col s6">
+              <i class="material-icons prefix">language</i>
+              <input type="text" name="language">
+              <label>Language code</label>
+              <span class="badge">Not required</span>
+            </div>
+            </div>
+        
         </div>
 
         <div class="card-action">
@@ -74,7 +85,7 @@
     [X] User can click the 'Login' button to perform a mock login.
     [X] User can see a message if either or both of the input fields are empty and the border color of the field(s) in error should be changed to red.
     [X] User can see a login acknowledgement message in the format: <hello-in-native-language> <user-name> you have successfully logged in!
-    [] User can click the 'Logout' button to clear the text input fields and any previous messages.
+    [X] User can click the 'Logout' button to clear the text input fields and any previous messages.
     [] User can see a new message when successfully logged out in the format: Have a great day <user-name>!
 
     #Bonus features
