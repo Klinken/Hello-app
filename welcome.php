@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>
-        Hello <?php echo $_POST["username"]; ?> you have successfully logged in!
+        <span id="greeting"></span> <?php echo $_POST["username"]; ?> you have successfully logged in!
     </p>
     <form action="index.php">
         <button type="submit">Logout</button>

@@ -1,12 +1,13 @@
 var ip;
 
-function loadDoc() {
+function getIp() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           var obj = JSON.parse(this.responseText);
+          
           ip = obj.dns.ip;
-          toText(ip);
+          
           setHello(ip);
       }
     };
@@ -19,15 +20,12 @@ function loadDoc() {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
           var obj = JSON.parse(this.responseText);
-          console.log(obj.hello);
+
+          document.getElementById("greeting").innerHTML = obj.hello;
       }
     };
     xhttp.open("GET", "https://fourtonfish.com/hellosalut/?ip=" + ip, true);
     xhttp.send();
   }
 
-  loadDoc();
-
-  function toText(txt) {
-      console.log(txt);
-  }
+  getIp();
