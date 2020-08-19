@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +17,27 @@
 </head>
 
 <body class="light-blue darken-3">
+<?php 
+if(strlen($_SESSION["name"]) > 0){
+  
+  echo 
+  '
+  <div id="modal" class="modal" style="z-index: 1003; display: block; opacity: 1; top: 10%; transform: scaleX(1) scaleY(1);">
+  <div class="modal-content">
+    <h4>Logged out</h4>
+    <p>Have a great day - ' . $_SESSION["name"] . '!</p>
+  </div>
+  <div class="modal-footer">
+    <a id="close-modal" class="waves-effect waves-green btn-flat">Close</a>
+  </div>
+</div>
+  '
+  ;
+  session_destroy();
+}
+
+?>
+
   <div class="container">
     <div class="row" style="height: 100vh;display: flex;align-items: center;">
       <div class="col m4 offset-m4">
@@ -70,6 +95,12 @@
 
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="/lib/materialize/js/bin/materialize.min.js"></script>
+  <script>
+    document.getElementById("close-modal").addEventListener("click", function(){
+    document.getElementById("modal").remove();
+
+  });
+  </script>
 </body>
 
 </html>
@@ -86,12 +117,11 @@
     [X] User can see a message if either or both of the input fields are empty and the border color of the field(s) in error should be changed to red.
     [X] User can see a login acknowledgement message in the format: <hello-in-native-language> <user-name> you have successfully logged in!
     [X] User can click the 'Logout' button to clear the text input fields and any previous messages.
-    [] User can see a new message when successfully logged out in the format: Have a great day <user-name>!
+    [X] User can see a new message when successfully logged out in the format: Have a great day <user-name>!
 
     #Bonus features
 
     [X] User can see an additional text input field for a language code which will be used to override the IP obtained through geolocation. Hint: this is a great feature for testing your app.
-    [] User can see additional geolocation information after logging on that includes at least the local IP address, city, region, country name, zip code, longitude, latitude, and timezone.
 
 
     #Constraints

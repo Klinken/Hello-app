@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+$_SESSION["name"] = $_POST["username"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +13,7 @@
 </head>
 <body>
     <p>
-        <span id="greeting"></span> <?php echo $_POST["username"]; ?> you have successfully logged in!
+        <span id="greeting"></span> <?php echo $_SESSION["name"]; ?> you have successfully logged in!
     </p>
 
     <form action="index.php">

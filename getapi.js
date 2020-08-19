@@ -45,3 +45,4 @@ function getIp() {
     xhttp.open("GET", "https://fourtonfish.com/hellosalut/?lang=" + lang, true);
     xhttp.send();
   }
+  
